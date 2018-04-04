@@ -1,10 +1,10 @@
 import React from 'react';
-import {CLIENT_ORIGIN} from '../config';
+//import {CLIENT_ORIGIN} from '../config';
 import '../css/initiate-transaction.css';
 
 export default ({transactionAmount, transactionId}) => {
-  let link = `${CLIENT_ORIGIN}/transaction/receive/${transactionId}`
-  //let link = `https://zhip.netlify.com/transaction/receive/${transactionId}`
+  //let link = `${CLIENT_ORIGIN}/transaction/receive/${transactionId}`
+  let link = `https://zhip.netlify.com/transaction/receive/${transactionId}`
   return (
     <div className='new-transaction-details'>
       <p className='attention-stmt'>Success!</p>
