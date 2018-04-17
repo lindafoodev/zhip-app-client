@@ -32,22 +32,6 @@ export const accountError = () => ({
   type: ACCOUNT_ERROR,
 });
 
-export const SETUP_USER_ACTION_REQUEST = 'SETUP_USER_ACTION_REQUEST';
-export const setupUserActionRequest = () => ({
-  type: SETUP_USER_ACTION_REQUEST,
-});
-
-export const SETUP_USER_SUCCESS = 'SETUP_USER_SUCCESS';
-export const setupUserSuccess = (account) => ({
-  type: SETUP_USER_SUCCESS,
-  payload: {accountBalance: account.accountBalance, userId: account._id}
-});
-
-export const SETUP_USER_ERROR = 'SETUP_USER_ERROR';
-export const setupUserError = () => ({
-  type: SETUP_USER_ERROR,
-});
-
 export const ACTIVITY_ACTION_REQUEST = 'ACTIVITY_ACTION_REQUEST';
 export const activityActionRequest = () => ({
   type: ACTIVITY_ACTION_REQUEST,
@@ -63,27 +47,6 @@ export const ACTIVITY_ERROR = 'ACTIVITY_ERROR';
 export const activityError = () => ({
   type: ACTIVITY_ERROR,
 });
-
-
-//works
-export const createNewUser = () => dispatch => {
-  dispatch(setupUserActionRequest());
-  return fetch(`${REACT_APP_API_BASE_URL}/user/new`, {
-    method: 'POST',
-  })
-  .then(response =>  {
-    if (!response.ok) {
-      return Promise.reject(response.statusText);
-    }
-    return response.json();
-  })
-  .then( request => {
-    dispatch(setupUserSuccess(request));
-    return '1'
-  })
-  .catch(error => dispatch(setupUserError(error)))
-}
-
 
 //works
 export const initiateTransaction = values => dispatch => {
