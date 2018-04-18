@@ -5,8 +5,6 @@ import Input from './input';
 import {fetchTransactions} from '../actions/actions';
 import {withRouter} from 'react-router-dom';
 
-import '../css/activity-form.css';
-
 export class ActivityForm extends React.Component {
   onSubmit(values) {
     this.props.dispatch(fetchTransactions(values));

@@ -1,6 +1,5 @@
 import React from 'react';
 //import {CLIENT_ORIGIN} from '../config';
-import '../css/initiate-transaction.css';
 
 export default ({transactionAmount, transactionId}) => {
   //let link = `${CLIENT_ORIGIN}/transaction/receive/${transactionId}`

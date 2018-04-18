@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import LandingPage from './components/landingPage';
 import Sidebar from './components/sidebar';
 import InitiateForm from './components/initiate-form';

@@ -5,8 +5,6 @@ import Input from './input';
 import {fetchBalance} from '../actions/actions';
 import {withRouter} from 'react-router-dom';
 
-import '../css/balance-form.css';
-
 export class BalanceForm extends React.Component {
   onSubmit(values) {
     console.log('onsubmit working');

@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import '../css/activity.css';
 
 export function ActivityContainer({transactionsList}) {
         const transactions = transactionsList.map(transaction => (

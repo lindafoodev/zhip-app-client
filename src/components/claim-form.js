@@ -5,8 +5,6 @@ import Input from './input';
 import {claimTransaction} from '../actions/actions';
 import {withRouter} from 'react-router-dom';
 
-import '../css/claim-form.css';
-
 export class ClaimForm extends React.Component{
   onSubmit(values) {
     const transactionId = this.props.match.params.transactionId;

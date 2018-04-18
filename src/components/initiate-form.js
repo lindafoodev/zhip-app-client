@@ -5,8 +5,6 @@ import Input from './input';
 import {initiateTransaction} from '../actions/actions';
 import {withRouter} from 'react-router-dom';
 
-import '../css/initiate-form.css';
-
 export class InitiateForm extends React.Component {
   onSubmit(values) {
     this.props.dispatch(initiateTransaction(values)).then(results => {
