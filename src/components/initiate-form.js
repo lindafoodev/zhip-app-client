@@ -2,6 +2,7 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {required, notEmpty, correctCharLength, characterType} from '../validators/submit-form-validator';
 import Input from './input';
+import {Link} from 'react-router-dom';
 import {initiateTransaction} from '../actions/actions';
 import {withRouter} from 'react-router-dom';
 
@@ -27,6 +28,9 @@ export class InitiateForm extends React.Component {
         </div> 
       </form>
       </div>
+      <div className='redirect'>
+            Need a Zhip ID? <Link to="/register">Register</Link>
+        </div>
       <div className='direction'>
         <p className='attention-stmt'>Input your Zhip ID and IOU amount.</p>
         <p>Once you submit, you'll be provided with a unique url that you can provide to any recipient!</p>

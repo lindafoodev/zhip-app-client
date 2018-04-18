@@ -2,6 +2,7 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {required, notEmpty, correctCharLength} from '../validators/submit-form-validator';
 import Input from './input';
+import {Link} from 'react-router-dom'
 import {claimTransaction} from '../actions/actions';
 import {withRouter} from 'react-router-dom';
 
@@ -23,6 +24,9 @@ export class ClaimForm extends React.Component{
               <button className="form-submit" type="submit">Submit</button>
             </div>
           </form>
+        </div>
+        <div className='redirect'>
+            Need a Zhip ID? <Link to="/register">Register</Link>
         </div>
         <div className='direction'>
           <p>Input your Zhip ID to claim the IOU.</p>
