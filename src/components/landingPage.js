@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-
 import '../css/landingPage.css';
 
 export function LandingPage(props) {
@@ -11,17 +10,17 @@ export function LandingPage(props) {
     }
 
     return (
-        <div className="landingpage">
-            <section className='landingpage'>
-                <div className='intro-message'>Welcome to Zhip!</div>
-                <div id='new-user'>
-                    <p>Send and receive IOUs between you and anyone else without needing their account information.</p>
-                    <p>All you need is a secured Zhip account ID.</p>
-                    <p className='attention-stmt'>Let's Get Started!</p>
-                    <Link to="/register">Register</Link>
-                </div>
-            </section>
-        </div>
+        <section className='landingpage'>
+            <div className='intro-message'>Welcome to Zhip!</div>
+            <div className='direction'>
+                <p>Join Zhip today to start sending and receiving IOUs between you and anyone else without needing their account information.</p>
+                <p>All you need to do is register and get a free secured Zhip ID.</p>
+                <p className='attention-stmt'>Let's Get Started!</p>
+            </div>
+            <div className='button-holder redirect'>
+                <Link to="/register"><button className='form-submit' type="submit">Register</button></Link>
+            </div>
+      </section>
     );
 }
 
