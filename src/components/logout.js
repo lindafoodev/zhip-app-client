@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function LogOut(props) {
   return (
-    <div className="logout-message">
-      <p>You have been successfully logged out of Zhip!</p>
-      <p>Thank You!</p>
+    <div className="direction">
+      <p className="attention-stmt">You have been successfully logged out.</p>
+      <p className="attention-stmt">Thank You!</p>
     </div>
   )
 }
