@@ -11,7 +11,7 @@ export function LoginPage(props) {
         return <Redirect to="/home" />;
     }
     return (
-        <div className="home">
+        <div className="login">
             <LoginForm />
         </div>
     );

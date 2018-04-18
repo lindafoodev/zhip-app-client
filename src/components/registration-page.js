@@ -11,7 +11,7 @@ export function RegistrationPage(props) {
         return <Redirect to="/home" />;
     }
     return (
-        <div className="home">
+        <div className="registration">
             <RegistrationForm />
         </div>
     );
