@@ -61,7 +61,7 @@ export class Sidebar extends React.Component {
                         </li>
                         <li key="log-in" className="log-in menu-list-item ">
                             <Link to={'/login'} className='link'>
-                                Login
+                                Log in
                             </Link>
                         </li>
                         <li key="register" className="register menu-list-item ">

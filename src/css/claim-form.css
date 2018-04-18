@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   padding-top: 25px;
+  text-align: center;
 }
 
 input[type=text], select {
@@ -50,10 +51,6 @@ label{
 .title{
   font-size: 3em;
   color: rgba(0, 0, 0, 0.753)
-}
-div.form-input{
-  align-self: center;
-  text-align: center;
 }
 
 section > .direction{

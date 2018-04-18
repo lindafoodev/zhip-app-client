@@ -1,11 +1,11 @@
-#initiate-form, .title{
+#login-form, .title{
   display: flex;
   justify-content: center;
-  padding-top: 25px;
   text-align: center;
+  padding-top: 25px;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
   width: 100%;
   padding: 10px;
   font-size:2em;
@@ -18,7 +18,7 @@ input[type=text] {
 
 label {
   font-size: 2em;
-  color: #4078a5
+  color: #4078a5;
 }
 
 section > .direction{

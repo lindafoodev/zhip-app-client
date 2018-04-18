@@ -53,10 +53,10 @@ label{
   color: rgba(0, 0, 0, 0.753)
 }
 
-div.form-input{
+/* div.form-input{
   align-self: center;
   text-align: center;
-}
+} */
 
 section > .direction{
   color:rgba(0, 0, 0, 0.753);
