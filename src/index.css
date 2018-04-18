@@ -101,12 +101,12 @@ section > .direction{
   text-align: center;
 }
 
-#landingpage{
+#landingpage, #dashboard{
   display: flex;
   justify-content: center;
 }
 
-.landingpage-redirect{
+.modified-redirect{
   text-align: center;
   padding: 10px;
   font-weight: bold;

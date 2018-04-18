@@ -1,62 +1,30 @@
 import React from 'react';
-//import {createNewUser} from '../actions/users';
-// import {reduxForm} from 'redux-form';
-// import {withRouter} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-// export class Dashboard extends React.Component{
-//   componentDidMount(){
-//     console.log('testing wires for Dashboard');
-//   }
+import requiresLogin from './requires-login';
 
-//   // onSubmit() {
-//   //   this.props.dispatch(createNewUser()).then(results => {
-//   //     if(results === '1'){
-//   //       this.props.history.push('/r')
-//   //     }
-//   //     return results 
-//   //   })
-//   // }
-  
-//   render(){
-//     if (props.loggedIn) {
-//       return <Redirect to="/dashboard" />;
-//   }
-//     return (
-//       <section className='dashboardpage'>
-//       <div className='intro-message'>Hello World, welcome to Zhip!</div>
-//         <div id='new-user-form'>
-//         <form className='new-user-form' onSubmit={this.props.handleSubmit(() => this.onSubmit())}>
-//           <p>Send and receive IOUs between you and anyone else without needing their account information.</p>
-//           <p>All you need is a secured Zhip account ID.</p>
-//           <p className='attention-stmt'>Let's Get Started!</p>
-//           <div className='button-holder'>
-//             <button className='form-submit' type="submit">Secure New Account ID</button>
-//           </div>
-//         </form>
-//         </div>
-//       </section>
-//     );
-//   }
-// }
-
-// const SmartRouter = withRouter(reduxForm({form: 'newUser'})(Dashboard));
-
-// export default SmartRouter
-
-export function Dashboard(props) {
+export class Dashboard extends React.Component{
+    componentWillMount(){
+        // return this.props.dispatch(fetchUserData(this.props.userId));
+    }
+    render(){
   // If we are logged in redirect straight to the user's dashboard
-  if (props.loggedIn && props.isFirstTimeUser) {
+  if (this.props.loggedIn && this.props.isFirstTimeUser) {
     return (
       <section className='dashboard'>
         <div className='intro-message'>Welcome to Zhip!</div>
         <div className='direction'>
-            <p>Join Zhip today to start sending and receiving IOUs between you and anyone else without needing their account information.</p>
-            <p>All you need to do is register and get a free secured Zhip ID.</p>
-            <p className='attention-stmt'>Save your Zhip ID in a secure place!</p>
+            <p className='attention-stmt'>Success!</p>
+            <p>Here is your secured Zhip ID.</p>
+            <p className='attention-stmt'>Zhip ID: {this.props.id}</p>
+            <p>This is your starting account balance.</p>
+            <p>Account Balance: {this.props.accountBalance}</p>
+            <p className='attention-stmt'>Safeguard your new Zhip ID!</p>
+            <p>For security, your Zhip ID will only be presented here once.</p>
+            <p>You can use your Zhip ID to create IOUs or claim IOUs from other Zhip users without needing to login!</p>
         </div>
         <div id="dashboard">
-            <div className='dashboard-redirect'>
+            <div className='modified-redirect'>
                 <Link to="/create"><button type="submit">Create IOU</button></Link>
             </div>
         </div>
@@ -65,24 +33,37 @@ export function Dashboard(props) {
   }
 
   return (
-      <section className='landingpage'>
+      <section className='dashboard'>
           <div className='intro-message'>Welcome back!</div>
-          <div className='direction'>
-              <p>New IOU: Create a new IOU</p>
-              <p>IOU Balance: Check your IOU Balance</p>
-              <p>IOU Activity: Check your IOU Activity</p>
-          </div>
+                <div id="dashboard">
+                    <div className='modified-redirect'>
+                        <Link to="/create"><button type="submit">Create IOU</button></Link>
+                    </div>
+                </div>
+                <div id="dashboard">
+                    <div className='modified-redirect'>
+                        <Link to="/balance"><button type="submit">Check IOU Balance</button></Link>
+                    </div>
+                </div>
+                <div id="dashboard">
+                    <div className='modified-redirect'>
+                        <Link to="/activity"><button type="submit">Check IOU Activity</button></Link>
+                    </div>
+                </div>
       </section>
   );
 }
+}
 
 const mapStateToProps = state => {
-  console.log('what is in state', state);
+  const {currentUser} = state.auth;
+  console.log('what is id', currentUser);
   return {
-  loggedIn: state.auth.currentUser !== null,
-  isFirstTimeUser: state.appReducer.isFirstTimeUser
-  // isFirstTimeUser: state.user.isFirstTimeUser
+  loggedIn: currentUser.currentUser !== null,
+  id: currentUser.id,
+  isFirstTimeUser: currentUser.isFirstTimeUser,
+  accountBalance: currentUser.accountBalance
   }
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));

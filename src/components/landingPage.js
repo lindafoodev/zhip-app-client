@@ -17,7 +17,7 @@ export function LandingPage(props) {
                 <p className='attention-stmt'>Let's Get Started!</p>
             </div>
             <div id="landingpage">
-                <div className='landingpage-redirect'>
+                <div className='modified-redirect'>
                     <Link to="/register"><button type="submit">Register</button></Link>
                 </div>
             </div>
