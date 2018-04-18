@@ -1,10 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+//import {LogOut} from './logout';
+import {clearAuth} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
 import '../css/sidebar.css';
 
 
 export class Sidebar extends React.Component {
+    logOut(){
+        this.props.dispatch(clearAuth());
+        clearAuthToken();
+    }
+
     render(){
         if (this.props.loggedIn){
             return (
@@ -31,7 +39,7 @@ export class Sidebar extends React.Component {
                         </li>
                         <li key="log-out" className="logout menu-list-item ">
                             <Link to={'/logout'} className='link'>
-                                Log out
+                                <button className='link logout-button' onClick={() => this.logOut()}>Log out</button>
                             </Link>
                         </li>
                     </ul>
