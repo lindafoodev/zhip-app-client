@@ -15,18 +15,18 @@ export class ClaimForm extends React.Component{
   render() {
     return (
       <section className='claim-form'>
-      <div className='title'>Claim IOU</div>
+        <div className='title'>Claim IOU</div>
         <div id='claim-form'>
-      <form autoComplete="off" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-          <Field component={Input} type="text" element="input" name="userIdClaimer" value="" id="userIdClaimer" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
-        <div className='button-holder'>
-        <button className="form-submit" type="submit">Submit</button>
+          <form autoComplete="off" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+              <Field component={Input} type="text" element="input" name="userIdClaimer" value="" id="userIdClaimer" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
+            <div className='button-holder'>
+              <button className="form-submit" type="submit">Submit</button>
+            </div>
+          </form>
         </div>
-      </form>
-      </div>
-      <div className='direction'>
-        <p>Input your Zhip ID to claim the IOU.</p>
-      </div>
+        <div className='direction'>
+          <p>Input your Zhip ID to claim the IOU.</p>
+        </div>
       </section>
     );
   }

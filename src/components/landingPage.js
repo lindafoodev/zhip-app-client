@@ -16,10 +16,12 @@ export function LandingPage(props) {
                 <p>All you need to do is register and get a free secured Zhip ID.</p>
                 <p className='attention-stmt'>Let's Get Started!</p>
             </div>
-            <div className='button-holder redirect'>
-                <Link to="/register"><button className='form-submit' type="submit">Register</button></Link>
+            <div id="landingpage">
+                <div className='landingpage-redirect'>
+                    <Link to="/register"><button type="submit">Register</button></Link>
+                </div>
             </div>
-      </section>
+        </section>
     );
 }
 

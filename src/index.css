@@ -19,7 +19,7 @@ main {
 }
 
 /*========================SHARED ELEMENTS===============*/
-#login-form, #registration-form, #initiate-form, #activity-form, #balance-form, #claim-form, .title{
+#login-form, #registration-form, #initiate-form, #activity-form, #balance-form, #claim-form{
   display: flex;
   justify-content: center;
   text-align: center;
@@ -62,7 +62,7 @@ button[type=submit]{
   text-decoration: none;
   color: rgba(0, 0, 0, 0.753)
   }
-  
+
   
 button[type=submit]:hover {
   background-color: #4078a5;
@@ -82,7 +82,8 @@ label {
 
 .title{
   font-size: 3em;
-  color: rgba(0, 0, 0, 0.753)
+  color: rgba(0, 0, 0, 0.753);
+  text-align: center
 }
 
 section > .direction{
@@ -100,10 +101,22 @@ section > .direction{
   text-align: center;
 }
 
-.redirect{
+#landingpage{
+  display: flex;
+  justify-content: center;
+}
+
+.landingpage-redirect{
   text-align: center;
   padding: 10px;
   font-weight: bold;
+  width: 40%
+}
+
+.redirect{
+text-align: center;
+padding: 10px;
+font-weight: bold;
 }
 
 #transaction-section, #activity-section, #balance-section, #claim-section{
