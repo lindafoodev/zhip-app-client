@@ -46,10 +46,27 @@ export const registerUser = user => dispatch => {
         });
 };
 
-
-
-
-
+export const firstTimeUser = () => (dispatch, getState) => {
+    console.log('firstTimeUser dispatched');
+    const authToken = getState().auth.authToken;
+    fetch(`${REACT_APP_API_BASE_URL}/users/return`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+        }
+    })
+    .then(response =>  {
+        if (!response.ok) {
+        return Promise.reject(response.statusText);
+        }
+        return response.json();
+    })
+    .catch(error => {
+        console.error('Error during application access:', error);
+    });
+}
 
 // // import {REACT_APP_API_BASE_URL} from '../config';
 

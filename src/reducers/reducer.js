@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
           loading: false,
           error: null,
           accountBalance: action.payload.accountBalance,
-          userId: action.payload.userId
+          id: action.payload.id
         })
       case ACCOUNT_ERROR:
         return Object.assign({}, state, {

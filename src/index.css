@@ -60,7 +60,8 @@ button[type=submit]{
   border-radius: 5px;
   background-color: white;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.753)
+  color: rgba(0, 0, 0, 0.753);
+  cursor: pointer;
   }
 
   
@@ -69,6 +70,7 @@ button[type=submit]:hover {
   color: white;
   border: 5px solid white;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .button-holder{
