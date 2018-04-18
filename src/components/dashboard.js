@@ -7,7 +7,7 @@ import {firstTimeUser} from '../actions/users';
 export class Dashboard extends React.Component{
 
     render(){
-    // If we are logged in redirect straight to the user's dashboard
+    // If user is new
         if (this.props.loggedIn && this.props.isFirstTimeUser) {
             this.props.dispatch(firstTimeUser());
             return (
@@ -31,7 +31,7 @@ export class Dashboard extends React.Component{
                 </section>
             );
         }
-
+        // If user is not new
         return (
             <section className='dashboard'>
                 <div className='intro-message'>Welcome back!</div>

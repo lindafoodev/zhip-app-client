@@ -7,7 +7,7 @@ import ClaimForm from './components/claim-form';
 import InitiateTransactionContainer from './components/initiate-transaction-container';
 import ClaimTransactionContainer from './components/claim-transaction-container';
 import BalanceForm from './components/balance-form';
-import BalanceContainer from './components/balance-container';
+//import BalanceContainer from './components/balance-container';
 import ActivityForm from './components/activity-form';
 import ActivityContainer from './components/activity-container';
 import Dashboard from './components/dashboard';
@@ -70,7 +70,7 @@ export class App extends React.Component {
                   <Route exact path="/transaction/receive/:transactionId" component={ClaimForm}/>
                   <Route exact path="/ct" component={ClaimTransactionContainer}/>
                   <Route exact path="/balance" component={BalanceForm}/>
-                  <Route exact path="/ab" component={BalanceContainer}/>
+                  {/*<Route exact path="/ab" component={BalanceContainer}/>*/}
                   <Route exact path="/activity" component={ActivityForm}/>
                   <Route exact path="/aa" component={ActivityContainer}/>
                   <Route exact path="/logout" component={LogOut}/>

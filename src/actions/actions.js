@@ -51,7 +51,7 @@ export const activityError = () => ({
 //works
 export const initiateTransaction = values => dispatch => {
   dispatch(transactionActionRequest());
-  return fetch(`${REACT_APP_API_BASE_URL}/transaction/send`, {
+  return fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/send`, {
     method: 'POST',
     body: JSON.stringify(values),
     headers: {
@@ -75,7 +75,7 @@ export const initiateTransaction = values => dispatch => {
 //works
 const updateInitiatorAccount = values => dispatch => {
   dispatch(accountActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/account/send`, {
+  fetch(`${REACT_APP_API_BASE_URL}/v1/account/send`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
@@ -97,7 +97,7 @@ const updateInitiatorAccount = values => dispatch => {
 //works
 export const claimTransaction = (values, transactionId) => dispatch => {
   dispatch(transactionActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/transaction/receive/${transactionId}`, {
+  fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/receive/${transactionId}`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
@@ -119,7 +119,7 @@ export const claimTransaction = (values, transactionId) => dispatch => {
 //works
 const updateClaimerAccount = values => dispatch => {
   dispatch(accountActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/account/receive/${values._id}`, {
+  fetch(`${REACT_APP_API_BASE_URL}/v1/account/receive/${values._id}`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
@@ -138,13 +138,15 @@ const updateClaimerAccount = values => dispatch => {
 }
 
 //works
-export const fetchBalance = values => dispatch => {
+export const fetchBalance = () => (dispatch, getState) => {
   dispatch(accountActionRequest());
-  console.log('what is in my values', values);
-  fetch(`${REACT_APP_API_BASE_URL}/user/balance/${values.userId}`, {
+  const authToken = getState().auth.authToken;
+  fetch(`${REACT_APP_API_BASE_URL}/v1/balance`, {
     method: 'GET',
     headers: {
-      "Accept": "application/json"
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${authToken}`
     }
   })
   .then(response =>  {
@@ -162,7 +164,7 @@ export const fetchBalance = values => dispatch => {
 //works
 export const fetchTransactions = values => dispatch => {
   dispatch(activityActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/activity/${values.userId}`, {
+  fetch(`${REACT_APP_API_BASE_URL}/v1/activity/${values.userId}`, {
     method: 'GET',
     headers: {
       "Accept": "application/json"
