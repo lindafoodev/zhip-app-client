@@ -3,6 +3,7 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {login} from '../actions/auth';
 import {required, notEmpty} from '../validators/submit-form-validator';
+import {Link} from 'react-router-dom';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -19,32 +20,35 @@ export class LoginForm extends React.Component {
             );
         }
         return (
-            <form
-                className="login-form"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
-                {error}
-                <label htmlFor="username">Username</label>
-                <Field
-                    component={Input}
-                    type="text"
-                    name="username"
-                    id="username"
-                    validate={[required, notEmpty]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="password"
-                    id="password"
-                    validate={[required, notEmpty]}
-                />
-                <button disabled={this.props.pristine || this.props.submitting}>
-                    Log in
-                </button>
-            </form>
+            <div>
+                <form
+                    className="login-form"
+                    onSubmit={this.props.handleSubmit(values =>
+                        this.onSubmit(values)
+                    )}>
+                    {error}
+                    <label htmlFor="username">Username</label>
+                    <Field
+                        component={Input}
+                        type="text"
+                        name="username"
+                        id="username"
+                        validate={[required, notEmpty]}
+                    />
+                    <label htmlFor="password">Password</label>
+                    <Field
+                        component={Input}
+                        type="password"
+                        name="password"
+                        id="password"
+                        validate={[required, notEmpty]}
+                    />
+                    <button disabled={this.props.pristine || this.props.submitting}>
+                        Log in
+                    </button>
+                </form>
+                New User? <Link to="/register">Register</Link>
+            </div>
         );
     }
 }

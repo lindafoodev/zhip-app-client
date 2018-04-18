@@ -14,7 +14,7 @@ export function RegistrationPage(props) {
         <div className="home">
             <h2>Register for Zhip App</h2>
             <RegistrationForm />
-            <Link to="/">Login</Link>
+            Already Registerd? <Link to="/login">Login</Link>
         </div>
     );
 }
