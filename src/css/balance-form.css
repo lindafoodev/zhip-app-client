@@ -2,9 +2,10 @@
   display: flex;
   justify-content: center;
   padding-top: 25px;
+  text-align: center;
 }
 
-input[type=text], select {
+input[type=text] {
   width: 100%;
   padding: 10px;
   font-size:2em;

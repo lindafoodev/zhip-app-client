@@ -1,4 +1,4 @@
-#login-form, .title{
+#registration-form, .title{
   display: flex;
   justify-content: center;
   text-align: center;
@@ -24,10 +24,7 @@ label {
 section > .direction{
   color:rgba(0, 0, 0, 0.753);
   font-size: 1em;
-  margin-left: 400px;
-  margin-right: 400px;
-  padding: 24px;
-  margin-top: 30px;
+  padding: 16px;
   border-radius: 5px;
   background-color: white;
 }

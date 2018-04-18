@@ -51,9 +51,9 @@ export class LoginForm extends React.Component {
                                 validate={[required, notEmpty]}
                             />
                             <div className='button-holder'>
-                            <button className="form-submit" type="submit" disabled={this.props.pristine || this.props.submitting}>
-                                Log in
-                            </button>
+                                <button className="form-submit" type="submit" disabled={this.props.pristine || this.props.submitting}>
+                                    Log in
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -64,7 +64,6 @@ export class LoginForm extends React.Component {
                         <p className='attention-stmt'>Welcome Back to Zhip!</p>
                         <p>Log in to view your IOU Balance and Activity!</p>
                     </div>
-                    
             </section>
         );
     }

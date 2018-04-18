@@ -12,7 +12,7 @@ import BalanceContainer from './components/balance-container';
 import ActivityForm from './components/activity-form';
 import ActivityContainer from './components/activity-container';
 import Dashboard from './components/dashboard';
-import LoginForm from './components/login-form';
+import LoginPage from './components/login-page';
 import LogOut from './components/logout';
 import {
   Route,
@@ -64,7 +64,7 @@ export class App extends React.Component {
                   <Route exact path="/home" component={LandingPage}/>
                   <Route exact path="/dashboard" component={Dashboard}/>
                   <Route exact path="/register" component={RegistrationPage}/>
-                  <Route exact path="/login" component={LoginForm}/>
+                  <Route exact path="/login" component={LoginPage}/>
                   <Route exact path="/r" component={PlaceholderContainer}/>
                   <Route exact path="/create" component={InitiateForm}/>
                   <Route exact path="/it" component={InitiateTransactionContainer}/>
