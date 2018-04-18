@@ -1,3 +1,5 @@
+//GOOD
+
 import jwtDecode from 'jwt-decode';
 import { SubmissionError } from 'redux-form';
 
