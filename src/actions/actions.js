@@ -162,12 +162,15 @@ export const fetchBalance = () => (dispatch, getState) => {
 }
 
 //works
-export const fetchTransactions = values => dispatch => {
+export const fetchTransactions = () => (dispatch, getState) => {
   dispatch(activityActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/v1/activity/${values.userId}`, {
+  const authToken = getState().auth.authToken;
+  fetch(`${REACT_APP_API_BASE_URL}/v1/activity`, {
     method: 'GET',
     headers: {
-      "Accept": "application/json"
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${authToken}`
     }
   })
   .then(response =>  {
