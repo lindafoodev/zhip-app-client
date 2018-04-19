@@ -15,7 +15,6 @@ export function Hamburger(props) {
     }
   };
 
-  // If we are logged in redirect straight to the user's dashboard
     if (props.loggedIn) {
       return (
         <div className="hamburger-nav" onClick={props.menuClicked}>

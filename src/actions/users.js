@@ -43,7 +43,6 @@ export const registerUser = user => dispatch => {
 };
 
 export const firstTimeUser = () => (dispatch, getState) => {
-    console.log('firstTimeUser dispatched');
     dispatch(firstAccessRequest());
     const authToken = getState().auth.authToken;
     fetch(`${REACT_APP_API_BASE_URL}/users/return`, {

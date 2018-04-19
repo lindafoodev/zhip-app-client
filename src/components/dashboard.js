@@ -59,12 +59,11 @@ export class Dashboard extends React.Component{
 
 const mapStateToProps = state => {
   const {currentUser} = state.auth;
-  console.log('what is id', currentUser);
   return {
-  loggedIn: currentUser.currentUser !== null,
-  id: currentUser.id,
-  isFirstTimeUser: currentUser.isFirstTimeUser,
-  accountBalance: currentUser.accountBalance
+    loggedIn: currentUser.currentUser !== null,
+    id: currentUser.id,
+    isFirstTimeUser: currentUser.isFirstTimeUser,
+    accountBalance: currentUser.accountBalance
   }
 };
 

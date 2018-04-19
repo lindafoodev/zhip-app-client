@@ -72,7 +72,7 @@ export const createTransaction = values => dispatch => {
   .catch(error => dispatch(transactionError(error)))
 }
 
-//utilized when user is logged in
+//utilized when user is logged in, no zhip ID required to be input
 export const initiateTransaction = value => (dispatch, getState) => {
   dispatch(transactionActionRequest());
   const authToken = getState().auth.authToken;
@@ -100,7 +100,7 @@ export const initiateTransaction = value => (dispatch, getState) => {
 }
 
 
-//works
+//updates initiator account when IOU created
 const updateInitiatorAccount = values => dispatch => {
   dispatch(accountActionRequest());
   fetch(`${REACT_APP_API_BASE_URL}/v1/account/send`, {
@@ -122,7 +122,7 @@ const updateInitiatorAccount = values => dispatch => {
 }
 
 
-//works
+//marks transaction as claimed
 export const claimTransaction = (values, transactionId) => dispatch => {
   dispatch(transactionActionRequest());
   fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/claim/${transactionId}`, {
@@ -144,7 +144,7 @@ export const claimTransaction = (values, transactionId) => dispatch => {
   .catch(error => dispatch(transactionError(error)))
 }
 
-//works
+//updates user account for claimed IOU amount
 const updateClaimerAccount = values => dispatch => {
   dispatch(accountActionRequest());
   fetch(`${REACT_APP_API_BASE_URL}/v1/account/claim/${values._id}`, {
@@ -165,7 +165,7 @@ const updateClaimerAccount = values => dispatch => {
   .catch(error => dispatch(accountError(error)))
 }
 
-//works
+//fetch user account balance, sign-in required
 export const fetchBalance = () => (dispatch, getState) => {
   dispatch(accountActionRequest());
   const authToken = getState().auth.authToken;
@@ -189,7 +189,7 @@ export const fetchBalance = () => (dispatch, getState) => {
   .catch(error => dispatch(accountError(error)))
 }
 
-//works
+//fetch all user IOU activity (claimed/received) - requires user to be logged in
 export const fetchTransactions = () => (dispatch, getState) => {
   dispatch(activityActionRequest());
   const authToken = getState().auth.authToken;

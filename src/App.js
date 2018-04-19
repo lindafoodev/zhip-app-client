@@ -4,7 +4,6 @@ import Sidebar from './components/sidebar';
 import InitiateForm from './components/initiate-form';
 import CreateForm from './components/create-form';
 import ClaimForm from './components/claim-form';
-//import PlaceholderContainer from './components/placeholder-container';
 import InitiateTransactionContainer from './components/initiate-transaction-container';
 import CreateTransactionContainer from './components/create-transaction-container';
 import ClaimTransactionContainer from './components/claim-transaction-container';

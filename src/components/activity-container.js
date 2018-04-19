@@ -43,7 +43,6 @@ export class ActivityContainer extends React.Component {
 }  
 
 const mapStateToProps = state => {
-    console.log('what is in appReducer', state.appReducer.transactionsList)
     return {
     transactionsList: state.appReducer.transactionsList,
     }
