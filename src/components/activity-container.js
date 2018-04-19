@@ -9,6 +9,14 @@ export class ActivityContainer extends React.Component {
     }
 
   render() {
+    if(this.props.transactionsList === undefined || this.props.transactionsList.length === 0 ){
+        return (
+            <div className="activity-section">
+                <div className='title'>Activity</div>
+                <ul className='transactions-list'> No Activity </ul>
+            </div>
+        );
+    }
     const transactions = this.props.transactionsList.map(transaction => (
       <li className='transactions-list-transaction' key={transaction._id}>
           <div className='transaction-container'>
@@ -27,8 +35,11 @@ export class ActivityContainer extends React.Component {
   }
 }  
 
-const mapStateToProps = state => ({
-  transactionsList: state.appReducer.transactionsList,
-});
+const mapStateToProps = state => {
+    console.log('what is in appReducer', state.appReducer.transactionsList)
+    return {
+    transactionsList: state.appReducer.transactionsList,
+    }
+};
 
 export default requiresLogin()(connect(mapStateToProps)(ActivityContainer));
