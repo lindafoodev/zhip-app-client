@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchTransactions} from '../actions/actions';
 import requiresLogin from './requires-login';
+import {Link} from 'react-router-dom';
 
 export class ActivityContainer extends React.Component {
    componentWillMount(){
@@ -13,7 +14,13 @@ export class ActivityContainer extends React.Component {
         return (
             <div className="activity-section">
                 <div className='title'>Activity</div>
-                <ul className='transactions-list'> No Activity </ul>
+                <p>No Activity</p>
+                <p className="attention-stmt">Get Started.</p>
+                <div id="dashboard">
+                    <div className='modified-redirect'>
+                        <Link to="/initiate"><button type="submit">Create IOU</button></Link>
+                    </div>
+                </div>
             </div>
         );
     }

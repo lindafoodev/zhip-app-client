@@ -26,6 +26,21 @@ main {
   padding-top: 25px;
 }
 
+.balance-form, .activity-section{
+  text-align: center;
+  padding-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.balance-form{
+  width: 50%;
+}
+
+.activity-section{
+  width: 60%;
+}
+
 input[type=text], input[type=password] {
   width: 100%;
   padding: 10px;

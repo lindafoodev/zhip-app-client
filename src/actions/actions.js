@@ -125,7 +125,7 @@ const updateInitiatorAccount = values => dispatch => {
 //works
 export const claimTransaction = (values, transactionId) => dispatch => {
   dispatch(transactionActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/receive/${transactionId}`, {
+  fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/claim/${transactionId}`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
@@ -147,7 +147,7 @@ export const claimTransaction = (values, transactionId) => dispatch => {
 //works
 const updateClaimerAccount = values => dispatch => {
   dispatch(accountActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/v1/account/receive/${values._id}`, {
+  fetch(`${REACT_APP_API_BASE_URL}/v1/account/claim/${values._id}`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {

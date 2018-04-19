@@ -11,8 +11,8 @@ export class BalanceContainer extends React.Component {
   render() {
     return (
       <section className='balance-form'>
+        <div className='title'>Current Balance</div>
         <div className='balance-details'>
-          <p className='attention-stmt'>Current Balance</p>
           <div className='info-container'>
           <p>{this.props.accountBalance}</p>
           </div>
