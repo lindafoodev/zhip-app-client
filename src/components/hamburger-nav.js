@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Hamburger from './hamburger';
+import {clearAuth} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
 
 class HamburgerNav extends React.Component {
     constructor(){
@@ -9,6 +11,10 @@ class HamburgerNav extends React.Component {
         open: false
       };
     }
+    logOut(){
+      this.props.dispatch(clearAuth());
+      clearAuthToken();
+  }
 
     handleClick(){
       this.setState({
@@ -20,7 +26,8 @@ class HamburgerNav extends React.Component {
       return (
       <Hamburger
         isOpen={this.state.open}
-        menuClicked={this.handleClick.bind(this)}/>
+        menuClicked={this.handleClick.bind(this)}
+        logOutClicked={this.logOut.bind(this)}/>
       )
     }
 }

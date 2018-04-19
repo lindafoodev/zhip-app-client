@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 export function Hamburger(props) {
+
   let { isOpen } = props;
 
   let style = {
@@ -45,7 +46,7 @@ export function Hamburger(props) {
                         </li>
                         <li key="log-out" className="logout menu-list-item ">
                             <Link to={'/logout'} className='link'>
-                                <button className='link logout-button' onClick={() => this.logOut()}>Log out</button>
+                                <button className='link logout-button' onClick={props.logOutClicked}>Log out</button>
                             </Link>
                         </li>
                     </ul>
