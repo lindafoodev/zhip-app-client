@@ -1,8 +1,6 @@
 import React from 'react';
-//import {CLIENT_ORIGIN} from '../config';
 
 export default ({transactionAmount, transactionId}) => {
-  //let link = `${CLIENT_ORIGIN}/transaction/receive/${transactionId}`
   let link = `https://zhip.netlify.com/transaction/receive/${transactionId}`
   return (
     <div className='new-transaction-details'>
