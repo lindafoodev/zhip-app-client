@@ -2,9 +2,11 @@ import React from 'react';
 import LandingPage from './components/landingPage';
 import Sidebar from './components/sidebar';
 import InitiateForm from './components/initiate-form';
+import CreateForm from './components/create-form';
 import ClaimForm from './components/claim-form';
 //import PlaceholderContainer from './components/placeholder-container';
 import InitiateTransactionContainer from './components/initiate-transaction-container';
+import CreateTransactionContainer from './components/create-transaction-container';
 import ClaimTransactionContainer from './components/claim-transaction-container';
 import BalanceContainer from './components/balance-container';
 import ActivityContainer from './components/activity-container';
@@ -62,8 +64,9 @@ export class App extends React.Component {
                   <Route exact path="/dashboard" component={Dashboard}/>
                   <Route exact path="/register" component={RegistrationPage}/>
                   <Route exact path="/login" component={LoginPage}/>
-                  {/*<Route exact path="/r" component={PlaceholderContainer}/>*/}
-                  <Route exact path="/create" component={InitiateForm}/>
+                  <Route exact path="/create" component={CreateForm}/>
+                  <Route exact path="/ct" component={CreateTransactionContainer}/>
+                  <Route exact path="/initiate" component={InitiateForm}/>
                   <Route exact path="/it" component={InitiateTransactionContainer}/>
                   <Route exact path="/transaction/receive/:transactionId" component={ClaimForm}/>
                   <Route exact path="/ct" component={ClaimTransactionContainer}/>

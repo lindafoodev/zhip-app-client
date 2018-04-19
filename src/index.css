@@ -19,7 +19,7 @@ main {
 }
 
 /*========================SHARED ELEMENTS===============*/
-#login-form, #registration-form, #initiate-form, #activity-form, #balance-form, #claim-form{
+#login-form, #registration-form, #create-form, #initiate-form, #activity-form, #balance-form, #claim-form{
   display: flex;
   justify-content: center;
   text-align: center;

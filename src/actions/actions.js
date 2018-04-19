@@ -49,9 +49,9 @@ export const activityError = () => ({
 });
 
 //works
-export const initiateTransaction = values => dispatch => {
+export const createTransaction = values => dispatch => {
   dispatch(transactionActionRequest());
-  return fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/send`, {
+  return fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/create`, {
     method: 'POST',
     body: JSON.stringify(values),
     headers: {
@@ -71,6 +71,33 @@ export const initiateTransaction = values => dispatch => {
   })
   .catch(error => dispatch(transactionError(error)))
 }
+
+export const initiateTransaction = value => (dispatch, getState) => {
+  dispatch(transactionActionRequest());
+  const authToken = getState().auth.authToken;
+  return fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/initiate`, {
+    method: 'POST',
+    body: JSON.stringify(value),
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    }
+  })
+  .then(response =>  {
+    if (!response.ok) {
+      return Promise.reject(response.statusText);
+    }
+    return response.json();
+  })
+  .then( request => {
+    dispatch(updateInitiatorAccount(request)); 
+    dispatch(transactionSuccess(request));
+    return '2'
+  })
+  .catch(error => dispatch(transactionError(error)))
+}
+
 
 //works
 const updateInitiatorAccount = values => dispatch => {

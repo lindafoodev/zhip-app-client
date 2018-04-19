@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-//import {LogOut} from './logout';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import '../css/sidebar.css';
@@ -23,7 +22,7 @@ export class Sidebar extends React.Component {
                 <nav className="menu">
                     <ul className="menu-list">
                         <li key="initiate-transaction" className="initiate-transaction menu-list-item ">
-                            <Link to={`/create`} className='link'>
+                            <Link to={`/initiate`} className='link'>
                                 New IOU
                             </Link>
                         </li>
