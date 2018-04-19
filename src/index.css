@@ -3,17 +3,14 @@ html, body {
   padding: 0;
   font-family: sans-serif;
   max-width: 100%;
-  height: 100vh;
   background-color:#87CEFA;
   overflow-x: hidden;
   height:auto!important;
 }
 
 .app{
-  height: 100vh;
   width: 100vw;
   display: flex;
-  padding-top: 15px;
 }
 
 main {
@@ -29,6 +26,11 @@ main {
   .app{
     padding-top: 0px;
   }
+
+  .hamburger-nav{
+    display: none;
+  }
+
 }
 
 /*========================SHARED ELEMENTS===============*/
@@ -182,6 +184,15 @@ p.decorate-link{
   text-align: center;
 }
 
+.application-name{
+  padding-top: 45px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 4.5em;
+  color: rgba(0, 0, 0, 0.753);
+}
+
+
 /*========================LANDING PAGE===============*/
 .intro-message {
   color:rgba(0, 0, 0, 0.753);
@@ -189,15 +200,6 @@ p.decorate-link{
   font-weight: 1000;
   text-align: center;
  }
-   
-/*========================LOGIN===============*/
-
-/*========================REGISTRATION===============*/
-
-
-/*========================INITIATE FORM===============*/
-
-/*========================INITIATE TRANSACTION===============*/
 
 /*========================ACTIVITY===============*/
 .transactions-list{
@@ -221,8 +223,101 @@ div.transaction-container {
   text-align: left;
 }
 
-/*=======================BALANCE===============*/
+/*=======================SIDEBAR===============*/
+@media only screen and (max-width: 768px){
+  .sidebar{
+    display: none
+  }
+}
 
+  .sidebar {
+    min-width: 200px;
+    position: flex;
+    align-items: center;
+    background-color: #4682B4;
+    height: 100vh;
+  }
 
+  .sidebar-left {
+    margin-right: 10px;
+  }
 
+  .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
+  .menu-list-item {
+    padding: 25px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+
+  }
+
+  .link{
+    text-decoration: none;
+    color: white;
+  }
+
+  .menu-list-item:hover{
+    background-color: #4078a5;
+  }
+
+  .menu-list-item:hover .logout-button{
+    background-color: #4078a5;
+  }
+
+  .logout-button {
+    border: 0px solid transparent;
+    box-shadow: 0px 0px 0px transparent;
+    text-shadow: 0px 0px 0px transparent;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    background: #4682B4;
+    cursor: pointer;
+  }
+
+  .logout-button:hover {
+    border: 0px solid transparent;
+    box-shadow: 0px 0px 0px transparent;
+    text-shadow: 0px 0px 0px transparent;
+    background: #4078a5;
+    cursor: pointer;
+  }
+
+/*=======================HAMBURGER===============*/
+
+@media (max-width: 768px){
+  a {
+      text-decoration: none;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    width: 24px;
+    height: 16px;
+    border: 1px solid #eeeeef;
+    border-radius: 2px;
+    box-shadow: 0 0 2px #eeeeef;
+    padding: 10px 10px;
+  }
+
+  .hamburger-stripe {
+      background-color: #6799ff;
+      height: 3px;
+      margin-bottom: 5px;
+  }
+
+  .sidebar {
+    width: 100vw;
+    position: flex;
+    align-items: center;
+    background-color: #4682B4;
+    height: 100%;
+  }
+}

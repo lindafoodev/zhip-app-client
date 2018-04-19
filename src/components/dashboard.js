@@ -12,7 +12,7 @@ export class Dashboard extends React.Component{
             this.props.dispatch(firstTimeUser());
             return (
                 <section className='dashboard'>
-                    <div className='intro-message'>Welcome to Zhip!</div>
+                    <div className='application-name'>Zhip</div>
                     <div className='direction'>
                         <p className='attention-stmt'>Success!</p>
                         <p>Here is your secured Zhip ID.</p>

@@ -15,6 +15,7 @@ class HamburgerNav extends React.Component {
         open: !this.state.open
       });
     }
+    
     render(){
       return (
       <Hamburger

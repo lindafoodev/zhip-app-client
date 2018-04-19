@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
-import '../css/hamburger-nav.css';
+import {Link} from 'react-router-dom';
 
 export function Hamburger(props) {
   let { isOpen } = props;
@@ -23,25 +22,75 @@ export function Hamburger(props) {
             <div className="hamburger-stripe"></div>
             <div className="hamburger-stripe"></div>
           </div>
-          <nav>
-            <ul className="navbar" style={Object.assign({}, style.base, style.link)}>
-                <li className="links">
-                  <a href="/home">
-                    Home
-                  </a>
-                </li>
-                <li className="links">
-                  <a href="/initiate">
-                    Create IOU
-                  </a>
-                </li>
-            </ul>
-          </nav>
+          <div className="sidebar sidebar-left" style={Object.assign({}, style.base, style.link)}>
+                <div className='application-name'>
+                    Zhip
+                </div>
+                <nav className="menu">
+                    <ul className="menu-list">
+                        <li key="initiate-transaction" className="initiate-transaction menu-list-item ">
+                            <Link to={`/initiate`} className='link'>
+                                New IOU
+                            </Link>
+                        </li>
+                        <li key="show-balance" className="show-balance menu-list-item ">
+                            <Link to={`/balance`} className='link'>
+                                IOU Balance
+                            </Link>
+                        </li>
+                        <li key="show-activity" className="show-activity menu-list-item ">
+                            <Link to={`/activity`} className='link'>
+                                IOU Activity
+                            </Link>
+                        </li>
+                        <li key="log-out" className="logout menu-list-item ">
+                            <Link to={'/logout'} className='link'>
+                                <button className='link logout-button' onClick={() => this.logOut()}>Log out</button>
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
       );
     }
     return (
-    <div className="hamburger-nav"></div>
+      <div className="hamburger-nav" onClick={props.menuClicked}>
+          <div className="hamburger">
+            <div className="hamburger-stripe"></div>
+            <div className="hamburger-stripe"></div>
+            <div className="hamburger-stripe"></div>
+          </div>
+        <div className="sidebar sidebar-left" style={Object.assign({}, style.base, style.link)}>
+                <div className='application-name'>
+                    Zhip
+                </div>
+                <nav className="menu">
+                    <ul className="menu-list">
+                        <li key="app-home" className="app-home menu-list-item">
+                            <Link to={`/home`} className='link'>
+                                Home
+                            </Link>
+                        </li>
+                        <li key="log-in" className="log-in menu-list-item ">
+                            <Link to={'/login'} className='link'>
+                                Log in
+                            </Link>
+                        </li>
+                        <li key="register" className="register menu-list-item ">
+                            <Link to={'/register'} className='link'>
+                                Register
+                            </Link>
+                        </li>
+                        <li key="initiate-transaction" className="initiate-transaction menu-list-item ">
+                            <Link to={`/create`} className='link'>
+                                New IOU
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     );
 }
 

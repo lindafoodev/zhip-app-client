@@ -10,7 +10,7 @@ export function LandingPage(props) {
 
     return (
         <section className='landingpage'>
-            <div className='intro-message'>Welcome to Zhip!</div>
+            <div className='application-name'>Zhip</div>
             <div className='direction'>
                 <p>Join Zhip today to start sending and receiving IOUs between you and anyone else without needing their account information.</p>
                 <p>All you need to do is register and get a free secured Zhip ID.</p>

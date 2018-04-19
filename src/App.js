@@ -37,15 +37,6 @@ export class App extends React.Component {
 
   componentWillUnmount() {
       this.stopPeriodicRefresh();
-      document.querySelector("div.hamburger").addEventListener("click", function () {
-        document.querySelector("li.links").classList.toggle('noDisplay');
-        console.log('clicked!');  
-      
-        if (!document.querySelector("nav.links").classList.contains('noDisplay')) {
-          document.querySelector("nav.links").classList.toggle('noDisplay');
-        }
-      
-      });
   }
 
   startPeriodicRefresh() {
