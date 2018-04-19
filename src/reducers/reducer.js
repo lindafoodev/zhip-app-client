@@ -1,13 +1,14 @@
 import {TRANSACTION_ACTION_REQUEST, TRANSACTION_SUCCESS, TRANSACTION_ERROR, ACCOUNT_ACTION_REQUEST, ACCOUNT_SUCCESS, ACCOUNT_ERROR, ACTIVITY_ACTION_REQUEST, ACTIVITY_SUCCESS, ACTIVITY_ERROR} from '../actions/actions';
-//import {SETUP_USER_ACTION_REQUEST, SETUP_USER_SUCCESS, SETUP_USER_ERROR} from '../actions/users';
+import {FIRST_ACCESS_REQUEST, FIRST_ACCESS_SUCCESS, FIRST_ACCESS_ERROR} from '../actions/users';
 const initialState = {
     transactionAmount: 0,
     accountBalance: 0,
     loading: false,
     error: null,
     transactionId: '',
-    id: '',
-    transactionsList: []
+    userId: '',
+    transactionsList: [],
+    isFirstTimeUser: true
 };
 
 export default (state = initialState, action) => {
@@ -37,29 +38,30 @@ export default (state = initialState, action) => {
           loading: false,
           error: null,
           accountBalance: action.payload.accountBalance,
-          id: action.payload.id
+          userId: action.payload.userId,
+          isFirstTimeUser: action.payload.isFirstTimeUser
         })
       case ACCOUNT_ERROR:
         return Object.assign({}, state, {
           loading: false,
           error: action.error
         })
-      // case SETUP_USER_ACTION_REQUEST: 
-      //   return Object.assign({}, state, {
-      //     loading: true
-      //   })
-      // case SETUP_USER_SUCCESS:
-      //   return Object.assign({}, state, {
-      //     loading: false,
-      //     error: null,
-      //     accountBalance: action.payload.accountBalance,
-      //     userId: action.payload.userId
-      //   })
-      // case SETUP_USER_ERROR:
-      //   return Object.assign({}, state, {
-      //     loading: false,
-      //     error: action.error
-      //   })
+      case FIRST_ACCESS_REQUEST: 
+        return Object.assign({}, state, {
+          loading: true
+        })
+      case FIRST_ACCESS_SUCCESS:
+        return Object.assign({}, state, {
+          loading: false,
+          error: null,
+          isFirstTimeUser: action.payload.isFirstTimeUser,
+          userId: action.payload.userId
+        })
+      case FIRST_ACCESS_ERROR:
+        return Object.assign({}, state, {
+          loading: false,
+          error: action.error
+        })
       case ACTIVITY_ACTION_REQUEST: 
         return Object.assign({}, state, {
           loading: true

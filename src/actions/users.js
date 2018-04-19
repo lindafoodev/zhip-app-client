@@ -28,6 +28,7 @@ export const registerUser = user => dispatch => {
 
 export const firstTimeUser = () => (dispatch, getState) => {
     console.log('firstTimeUser dispatched');
+    dispatch(firstAccessRequest());
     const authToken = getState().auth.authToken;
     fetch(`${REACT_APP_API_BASE_URL}/users/return`, {
         method: 'PUT',
@@ -43,7 +44,26 @@ export const firstTimeUser = () => (dispatch, getState) => {
         }
         return response.json();
     })
+    .then( request => { console.log('what is reqe', request);
+        dispatch(firstAccessSuccess(request));
+    })
     .catch(error => {
-        console.error('Error during application access:', error);
+        dispatch(firstAccessError(error));
     });
 }
+
+export const FIRST_ACCESS_REQUEST = 'FIRST_ACCESS_REQUEST';
+export const firstAccessRequest = () => ({
+  type: FIRST_ACCESS_REQUEST,
+});
+
+export const FIRST_ACCESS_SUCCESS = 'FIRST_ACCESS_SUCCESS';
+export const firstAccessSuccess = (account) => ({
+  type: FIRST_ACCESS_SUCCESS,
+  payload: {userId: account._id, isFirstTimeUser: account.isFirstTimeUser}
+});
+
+export const FIRST_ACCESS_ERROR = 'FIRST_ACCESS_ERROR';
+export const firstAccessError = () => ({
+  type: FIRST_ACCESS_ERROR,
+});

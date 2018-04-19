@@ -5,11 +5,13 @@ import requiresLogin from './requires-login';
 import {firstTimeUser} from '../actions/users';
 
 export class Dashboard extends React.Component{
+    componentDidMount(){
+        this.props.dispatch(firstTimeUser());
+    }
 
     render(){
     // If user is new
         if (this.props.loggedIn && this.props.isFirstTimeUser) {
-            this.props.dispatch(firstTimeUser());
             return (
                 <section className='dashboard'>
                     <div className='application-name'>Zhip</div>
