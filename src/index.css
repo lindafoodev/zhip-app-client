@@ -16,14 +16,7 @@ main {
   padding: 20px;
 }
 
-@media screen and (orientation: landscape) {
-  main {
-    flex-grow: 1;
-    padding: 10px;
-  }
-}
-
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 768px){
   main {
     flex-grow: 1;
     padding: 10px;
