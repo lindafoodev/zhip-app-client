@@ -3,6 +3,22 @@ import { SubmissionError } from 'redux-form';
 import { REACT_APP_API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
+export const FIRST_ACCESS_REQUEST = 'FIRST_ACCESS_REQUEST';
+export const firstAccessRequest = () => ({
+  type: FIRST_ACCESS_REQUEST,
+});
+
+export const FIRST_ACCESS_SUCCESS = 'FIRST_ACCESS_SUCCESS';
+export const firstAccessSuccess = (account) => ({
+  type: FIRST_ACCESS_SUCCESS,
+  payload: {userId: account._id, isFirstTimeUser: account.isFirstTimeUser}
+});
+
+export const FIRST_ACCESS_ERROR = 'FIRST_ACCESS_ERROR';
+export const firstAccessError = () => ({
+  type: FIRST_ACCESS_ERROR,
+});
+
 export const registerUser = user => dispatch => {
     return fetch(`${REACT_APP_API_BASE_URL}/users`, {
         method: 'POST',
@@ -51,19 +67,3 @@ export const firstTimeUser = () => (dispatch, getState) => {
         dispatch(firstAccessError(error));
     });
 }
-
-export const FIRST_ACCESS_REQUEST = 'FIRST_ACCESS_REQUEST';
-export const firstAccessRequest = () => ({
-  type: FIRST_ACCESS_REQUEST,
-});
-
-export const FIRST_ACCESS_SUCCESS = 'FIRST_ACCESS_SUCCESS';
-export const firstAccessSuccess = (account) => ({
-  type: FIRST_ACCESS_SUCCESS,
-  payload: {userId: account._id, isFirstTimeUser: account.isFirstTimeUser}
-});
-
-export const FIRST_ACCESS_ERROR = 'FIRST_ACCESS_ERROR';
-export const firstAccessError = () => ({
-  type: FIRST_ACCESS_ERROR,
-});

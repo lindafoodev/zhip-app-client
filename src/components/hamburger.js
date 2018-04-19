@@ -15,13 +15,6 @@ export function Hamburger(props) {
     }
   };
 
-  let nolongerNew = !props.isFirstTimeUser ? (
-    <li key="app-home" className="app-home menu-list-item">
-        <Link to={`/home`} className='link'>
-            Home
-        </Link>
-    </li>
- ) : null;
   // If we are logged in redirect straight to the user's dashboard
     if (props.loggedIn) {
       return (
@@ -37,7 +30,6 @@ export function Hamburger(props) {
                 </div>
                 <nav className="menu">
                     <ul className="menu-list">
-                        {nolongerNew}
                         <li key="initiate-transaction" className="initiate-transaction menu-list-item ">
                             <Link to={`/initiate`} className='link'>
                                 New IOU
@@ -107,7 +99,6 @@ export function Hamburger(props) {
 const mapStateToProps = state => {
     return {
         loggedIn: state.auth.currentUser !== null,
-        isFirstTimeUser: state.auth.isFirstTimeUser,  
     }
 };
 
