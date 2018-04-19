@@ -5,9 +5,9 @@ export default ({transactionAmount, transactionId}) => {
   return (
     <div className='new-transaction-details'>
       <p className='attention-stmt'>Success!</p>
-      <p><span className='key-name'>IOU ID:</span> {transactionId}</p>
-      <p><span className='key-name'>IOU Amount:</span> {transactionAmount}</p>
-      <div className='info-container'>
+      <p><span className='key-name'>IOU #</span> {transactionId}</p>
+      <p><span className='key-name'>Amount</span> {transactionAmount}</p>
+      <div className='direction'>
       <p>Provide this unique url to IOU recipient</p>
       <p className='decorate-link'>{link}</p>
       </div>

@@ -14,13 +14,17 @@ html, body {
 }
 
 main {
-  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  padding: 10px;
 }
 
+
+/*========================LARGE SCREEN OR LANDSCAPE===============*/
 @media only screen and (min-width: 768px), only screen and (orientation: landscape){
   main {
     flex-grow: 1;
-    padding: 10px;
   }
 
   .app{
@@ -34,26 +38,105 @@ main {
 }
 
 /*========================SHARED ELEMENTS===============*/
+@media only screen and (min-width: 768px), only screen and (orientation: landscape){
+  #login-form, #registration-form, #create-form, #initiate-form, #activity-form, #balance-form, #claim-form{
+    display: flex;
+  }
+
+  .balance-form, .activity-section{
+    text-align: center;
+    padding-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .balance-form{
+    width: 50%;
+  }
+  
+  .activity-section{
+    width: 60%;
+  }
+
+  /* .new-transaction-details p, .balance-details p, .claim-details p{
+    margin-left: auto;
+    margin-right: auto;
+  } */
+
+  /*========================ACTIVITY===============*/
+
+  div.transaction-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 10px;
+    font-weight: 300;
+    border: 5px solid white;
+    border-radius: 5px;
+    background-color: white;
+    color:rgba(0, 0, 0, 0.753);
+    font-size: 2em;
+    margin-left: 115px;
+    margin-right: 115px;
+    text-align: left;
+  }
+
+  .direction{
+    color:rgba(0, 0, 0, 0.753);
+    font-size: 1em;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 24px;
+    margin-top: 30px;
+    border-radius: 5px;
+    background-color: white;
+    word-wrap: break-word;
+  }
+}
+
+.direction{
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 1em;
+  border-radius: 5px;
+  background-color: white;
+  word-wrap: break-word;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.info-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding: 10px;
+  font-weight: 300;
+  border: 5px solid white;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.key-name{
+  font-weight: 700;
+}
+
 #login-form, #registration-form, #create-form, #initiate-form, #activity-form, #balance-form, #claim-form{
-  display: flex;
   justify-content: center;
   text-align: center;
   padding-top: 25px;
 }
 
-.balance-form, .activity-section{
+.new-transaction-details p, .balance-details p, .claim-details p{
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 2em;
   text-align: center;
-  padding-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.balance-form{
-  width: 50%;
-}
-
-.activity-section{
-  width: 60%;
+.transactions-list{
+  list-style: none;
+  padding: 0
 }
 
 input[type=text], input[type=password] {
@@ -118,17 +201,6 @@ label {
   text-align: center
 }
 
-section > .direction{
-  color:rgba(0, 0, 0, 0.753);
-  font-size: 1em;
-  margin-left: 25%;
-  margin-right: 25%;
-  padding: 24px;
-  margin-top: 30px;
-  border-radius: 5px;
-  background-color: white;
-}
-
 .direction > p{
   text-align: center;
 }
@@ -151,21 +223,14 @@ padding: 10px;
 font-weight: bold;
 }
 
-#transaction-section, #activity-section, #balance-section, #claim-section{
-  height: 100vh;
+.transaction-section, .activity-section, .claim-section{
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
 }
 
-.info-container {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 50px;
-  margin-left: 50px;
-  padding: 10px;
-  font-weight: 300;
-  border: 5px solid white;
-  border-radius: 5px;
-  background-color: white;
-}
 
 p.attention-stmt{
   padding: 24px;
@@ -176,12 +241,8 @@ p.decorate-link{
   font-style: italic;
 }
 
-.new-transaction-details p, .balance-details p, .claim-details p{
-  color:rgba(0, 0, 0, 0.753);
-  font-size: 2em;
-  margin-left: 115px;
-  margin-right: 115px;
-  text-align: center;
+p {
+  word-wrap: break-word;
 }
 
 .application-name{
@@ -201,29 +262,10 @@ p.decorate-link{
   text-align: center;
  }
 
-/*========================ACTIVITY===============*/
-.transactions-list{
-  list-style: none;
-}
 
-div.transaction-container {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 50px;
-  margin-left: 50px;
-  padding: 10px;
-  font-weight: 300;
-  border: 5px solid white;
-  border-radius: 5px;
-  background-color: white;
-  color:rgba(0, 0, 0, 0.753);
-  font-size: 2em;
-  margin-left: 115px;
-  margin-right: 115px;
-  text-align: left;
-}
 
 /*=======================SIDEBAR===============*/
+/*=======================MOBILE AND PORTRAIT===============*/
 @media only screen and (max-width: 768px){
   .sidebar{
     display: none
@@ -289,6 +331,7 @@ div.transaction-container {
   }
 
 /*=======================HAMBURGER===============*/
+/*=======================MOBILE AND PORTRAIT===============*/
 
 @media (max-width: 768px){
   a {

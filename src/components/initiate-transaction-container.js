@@ -6,9 +6,9 @@ export class InitiateTransactionContainer extends React.Component {
     
     render(props) {
         return (
-            <div className="transaction-section">
+            <section className="transaction-section">
                 <InitiateTransaction transactionAmount={this.props.transactionAmount} transactionId={this.props.transactionId} />
-            </div>
+            </section>
         );
     }
 }

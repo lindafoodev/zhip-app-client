@@ -70,7 +70,7 @@ export class App extends React.Component {
                   <Route exact path="/initiate" component={InitiateForm}/>
                   <Route exact path="/it" component={InitiateTransactionContainer}/>
                   <Route exact path="/transaction/claim/:transactionId" component={ClaimForm}/>
-                  <Route exact path="/ct" component={ClaimTransactionContainer}/>
+                  <Route exact path="/gt" component={ClaimTransactionContainer}/>
                   <Route exact path="/balance" component={BalanceContainer}/>
                   <Route exact path="/activity" component={ActivityContainer}/>
                   <Route exact path="/logout" component={LogOut}/>

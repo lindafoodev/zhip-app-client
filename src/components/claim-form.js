@@ -10,7 +10,7 @@ export class ClaimForm extends React.Component{
   onSubmit(values) {
     const transactionId = this.props.match.params.transactionId;
     this.props.dispatch(claimTransaction(values, transactionId));
-    this.props.history.push('/ct');
+    this.props.history.push('/gt');
   }
  
   render() {
