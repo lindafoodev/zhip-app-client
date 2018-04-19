@@ -13,6 +13,7 @@ import ActivityContainer from './components/activity-container';
 import Dashboard from './components/dashboard';
 import LoginPage from './components/login-page';
 import LogOut from './components/logout';
+import HamburgerNav from './components/hamburger-nav';
 import {
   Route,
   Redirect,
@@ -36,6 +37,15 @@ export class App extends React.Component {
 
   componentWillUnmount() {
       this.stopPeriodicRefresh();
+      document.querySelector("div.hamburger").addEventListener("click", function () {
+        document.querySelector("li.links").classList.toggle('noDisplay');
+        console.log('clicked!');  
+      
+        if (!document.querySelector("nav.links").classList.contains('noDisplay')) {
+          document.querySelector("nav.links").classList.toggle('noDisplay');
+        }
+      
+      });
   }
 
   startPeriodicRefresh() {
@@ -57,6 +67,7 @@ export class App extends React.Component {
     return (
       <div className="app">
           <Sidebar/>
+          <HamburgerNav/>
           <main>
             <Switch>
                   <Redirect exact from="/" to="/home" />
@@ -87,3 +98,5 @@ const mapStateToProps = state => ({
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
 export default withRouter(connect(mapStateToProps)(App));
+
+
