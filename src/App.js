@@ -56,7 +56,7 @@ export class App extends React.Component {
   render(){
     return (
       <div className="app">
-          <Sidebar />
+          <Sidebar/>
           <main>
             <Switch>
                   <Redirect exact from="/" to="/home" />

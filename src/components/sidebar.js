@@ -5,7 +5,6 @@ import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import '../css/sidebar.css';
 
-
 export class Sidebar extends React.Component {
     logOut(){
         this.props.dispatch(clearAuth());
