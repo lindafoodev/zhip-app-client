@@ -4,6 +4,7 @@ import {required, notEmpty, characterType} from '../validators/submit-form-valid
 import Input from './input';
 import {Link} from 'react-router-dom';
 import {initiateTransaction} from '../actions/actions';
+import requiresLogin from './requires-login';
 import {withRouter} from 'react-router-dom';
 
 export class InitiateForm extends React.Component {
@@ -40,6 +41,6 @@ export class InitiateForm extends React.Component {
   }
 }  
 
-const SmartRouter = withRouter(reduxForm({form: 'submit'})(InitiateForm));
+const SmartRouter = requiresLogin()(withRouter(reduxForm({form: 'submit'})(InitiateForm)));
 
 export default SmartRouter

@@ -48,7 +48,7 @@ export const activityError = () => ({
   type: ACTIVITY_ERROR,
 });
 
-//works
+//utilized for when user is not logged in but has a zhip id
 export const createTransaction = values => dispatch => {
   dispatch(transactionActionRequest());
   return fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/create`, {
@@ -72,6 +72,7 @@ export const createTransaction = values => dispatch => {
   .catch(error => dispatch(transactionError(error)))
 }
 
+//utilized when user is logged in
 export const initiateTransaction = value => (dispatch, getState) => {
   dispatch(transactionActionRequest());
   const authToken = getState().auth.authToken;

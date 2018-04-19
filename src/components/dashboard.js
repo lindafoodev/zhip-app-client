@@ -25,7 +25,7 @@ export class Dashboard extends React.Component{
                     </div>
                     <div id="dashboard">
                         <div className='modified-redirect'>
-                            <Link to="/create"><button type="submit">Create IOU</button></Link>
+                            <Link to="/initiate"><button type="submit">Create IOU</button></Link>
                         </div>
                     </div>
                 </section>
@@ -37,7 +37,7 @@ export class Dashboard extends React.Component{
                 <div className='intro-message'>Welcome back!</div>
                 <div id="dashboard">
                     <div className='modified-redirect'>
-                        <Link to="/create"><button type="submit">Create IOU</button></Link>
+                        <Link to="/initiate"><button type="submit">Create IOU</button></Link>
                     </div>
                 </div>
                 <div id="dashboard">
