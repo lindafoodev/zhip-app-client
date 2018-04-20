@@ -22,7 +22,7 @@ export class Dashboard extends React.Component{
                         <p>This is your starting account balance.</p>
                         <p>Account Balance: {this.props.accountBalance}</p>
                         <p className='attention-stmt'>Safeguard your new Zhip ID!</p>
-                        <p>For security, your Zhip ID will only be presented here once.</p>
+                        <p>For security, your Zhip ID will only be presented here during your first session.</p>
                         <p>You can use your Zhip ID to create IOUs or claim IOUs from other Zhip users without needing to login!</p>
                     </div>
                     <div id="dashboard">
