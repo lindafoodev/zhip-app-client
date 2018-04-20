@@ -20,9 +20,8 @@ main {
   padding: 10px;
 }
 
-
 /*========================LARGE SCREEN OR LANDSCAPE===============*/
-@media only screen and (min-width: 768px), only screen and (orientation: landscape){
+@media only screen and (min-width: 768px){
   main {
     flex-grow: 1;
   }
