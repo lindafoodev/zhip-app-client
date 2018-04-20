@@ -288,6 +288,7 @@ p {
     align-items: center;
     background-color: #4682B4;
     height: 100vh;
+    height: 100%;
   }
 
   .sidebar-left {
@@ -372,6 +373,7 @@ p {
     align-items: center;
     background-color: #4682B4;
     height: 100vh;
+    height: 100%;
   }
 }
 
