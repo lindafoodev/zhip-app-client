@@ -32,22 +32,6 @@ export const accountError = () => ({
   type: ACCOUNT_ERROR,
 });
 
-export const SETUP_USER_ACTION_REQUEST = 'SETUP_USER_ACTION_REQUEST';
-export const setupUserActionRequest = () => ({
-  type: SETUP_USER_ACTION_REQUEST,
-});
-
-export const SETUP_USER_SUCCESS = 'SETUP_USER_SUCCESS';
-export const setupUserSuccess = (account) => ({
-  type: SETUP_USER_SUCCESS,
-  payload: {accountBalance: account.accountBalance, userId: account._id}
-});
-
-export const SETUP_USER_ERROR = 'SETUP_USER_ERROR';
-export const setupUserError = () => ({
-  type: SETUP_USER_ERROR,
-});
-
 export const ACTIVITY_ACTION_REQUEST = 'ACTIVITY_ACTION_REQUEST';
 export const activityActionRequest = () => ({
   type: ACTIVITY_ACTION_REQUEST,
@@ -64,31 +48,10 @@ export const activityError = () => ({
   type: ACTIVITY_ERROR,
 });
 
-
-//works
-export const createNewUser = () => dispatch => {
-  dispatch(setupUserActionRequest());
-  return fetch(`${REACT_APP_API_BASE_URL}/user/new`, {
-    method: 'POST',
-  })
-  .then(response =>  {
-    if (!response.ok) {
-      return Promise.reject(response.statusText);
-    }
-    return response.json();
-  })
-  .then( request => {
-    dispatch(setupUserSuccess(request));
-    return '1'
-  })
-  .catch(error => dispatch(setupUserError(error)))
-}
-
-
-//works
-export const initiateTransaction = values => dispatch => {
+//utilized for when user is not logged in but has a zhip id
+export const createTransaction = values => dispatch => {
   dispatch(transactionActionRequest());
-  return fetch(`${REACT_APP_API_BASE_URL}/transaction/send`, {
+  return fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/create`, {
     method: 'POST',
     body: JSON.stringify(values),
     headers: {
@@ -109,10 +72,38 @@ export const initiateTransaction = values => dispatch => {
   .catch(error => dispatch(transactionError(error)))
 }
 
-//works
+//utilized when user is logged in, no zhip ID required to be input
+export const initiateTransaction = value => (dispatch, getState) => {
+  dispatch(transactionActionRequest());
+  const authToken = getState().auth.authToken;
+  return fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/initiate`, {
+    method: 'POST',
+    body: JSON.stringify(value),
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    }
+  })
+  .then(response =>  {
+    if (!response.ok) {
+      return Promise.reject(response.statusText);
+    }
+    return response.json();
+  })
+  .then( request => {
+    dispatch(updateInitiatorAccount(request)); 
+    dispatch(transactionSuccess(request));
+    return '2'
+  })
+  .catch(error => dispatch(transactionError(error)))
+}
+
+
+//updates initiator account when IOU created
 const updateInitiatorAccount = values => dispatch => {
   dispatch(accountActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/account/send`, {
+  fetch(`${REACT_APP_API_BASE_URL}/v1/account/send`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
@@ -131,10 +122,10 @@ const updateInitiatorAccount = values => dispatch => {
 }
 
 
-//works
+//marks transaction as claimed
 export const claimTransaction = (values, transactionId) => dispatch => {
   dispatch(transactionActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/transaction/receive/${transactionId}`, {
+  fetch(`${REACT_APP_API_BASE_URL}/v1/transaction/claim/${transactionId}`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
@@ -153,10 +144,10 @@ export const claimTransaction = (values, transactionId) => dispatch => {
   .catch(error => dispatch(transactionError(error)))
 }
 
-//works
+//updates user account for claimed IOU amount
 const updateClaimerAccount = values => dispatch => {
   dispatch(accountActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/account/receive/${values._id}`, {
+  fetch(`${REACT_APP_API_BASE_URL}/v1/account/claim/${values._id}`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
@@ -174,14 +165,16 @@ const updateClaimerAccount = values => dispatch => {
   .catch(error => dispatch(accountError(error)))
 }
 
-//works
-export const fetchBalance = values => dispatch => {
+//fetch user account balance, sign-in required
+export const fetchBalance = () => (dispatch, getState) => {
   dispatch(accountActionRequest());
-  console.log('what is in my values', values);
-  fetch(`${REACT_APP_API_BASE_URL}/user/balance/${values.userId}`, {
+  const authToken = getState().auth.authToken;
+  fetch(`${REACT_APP_API_BASE_URL}/v1/balance`, {
     method: 'GET',
     headers: {
-      "Accept": "application/json"
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${authToken}`
     }
   })
   .then(response =>  {
@@ -196,13 +189,16 @@ export const fetchBalance = values => dispatch => {
   .catch(error => dispatch(accountError(error)))
 }
 
-//works
-export const fetchTransactions = values => dispatch => {
+//fetch all user IOU activity (claimed/received) - requires user to be logged in
+export const fetchTransactions = () => (dispatch, getState) => {
   dispatch(activityActionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/activity/${values.userId}`, {
+  const authToken = getState().auth.authToken;
+  fetch(`${REACT_APP_API_BASE_URL}/v1/activity`, {
     method: 'GET',
     headers: {
-      "Accept": "application/json"
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${authToken}`
     }
   })
   .then(response =>  {

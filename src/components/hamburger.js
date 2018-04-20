@@ -1,24 +1,29 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {login} from '../actions/auth';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
 
-export class Sidebar extends React.Component {
-    logOut(){
-        this.props.dispatch(clearAuth());
-        clearAuthToken();
+export function Hamburger(props) {
+
+  let { isOpen } = props;
+
+  let style = {
+    base: {
+      display: 'none'
+    },
+    link: {
+      display: `${isOpen ? 'block' : 'none'}`,
     }
+  };
 
-    onSubmit(obj){
-        return this.props.dispatch(login(obj.username, obj.password));
-    }
-
-    render(){
-        if (this.props.loggedIn){
-            return (
-            <div className="sidebar sidebar-left">
+    if (props.loggedIn) {
+      return (
+        <div className="hamburger-nav" onClick={props.menuClicked}>
+          <div className="hamburger">
+            <div className="hamburger-stripe"></div>
+            <div className="hamburger-stripe"></div>
+            <div className="hamburger-stripe"></div>
+          </div>
+          <div className="sidebar sidebar-left" style={Object.assign({}, style.base, style.link)}>
                 <div className='application-name'>
                     Zhip
                 </div>
@@ -41,23 +46,30 @@ export class Sidebar extends React.Component {
                         </li>
                         <li key="log-out" className="logout menu-list-item ">
                             <Link to={'/logout'} className='link'>
-                                <button className='link logout-button' onClick={() => this.logOut()}>Log out</button>
+                                <button className='link logout-button' onClick={props.logOutClicked}>Log out</button>
                             </Link>
                         </li>
                     </ul>
                 </nav>
             </div>
-            );
-        }
-        return (
-            <div className="sidebar sidebar-left">
+        </div>
+      );
+    }
+    return (
+      <div className="hamburger-nav" onClick={props.menuClicked}>
+          <div className="hamburger">
+            <div className="hamburger-stripe"></div>
+            <div className="hamburger-stripe"></div>
+            <div className="hamburger-stripe"></div>
+          </div>
+        <div className="sidebar sidebar-left" style={Object.assign({}, style.base, style.link)}>
                 <div className='application-name'>
                     Zhip
                 </div>
                 <nav className="menu">
                     <ul className="menu-list">
                         <li key="demo-acct" className="demo-acct menu-list-item ">
-                            <button className='link logout-button' onClick={() => this.onSubmit({username:'hello', password:'world12345'})}>Demo</button>
+                            <button className='link logout-button' onClick={props.demoClicked}>Demo</button>
                         </li>
                         <li key="app-home" className="app-home menu-list-item">
                             <Link to={`/home`} className='link'>
@@ -82,12 +94,14 @@ export class Sidebar extends React.Component {
                     </ul>
                 </nav>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
-const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
-});
+const mapStateToProps = state => {
+    return {
+        loggedIn: state.auth.currentUser !== null,
+    }
+};
 
-export default connect(mapStateToProps)(Sidebar);
+export default connect(mapStateToProps)(Hamburger);

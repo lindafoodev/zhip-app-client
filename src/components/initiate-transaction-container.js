@@ -1,15 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import InitiateTransaction from './initiate-transaction';
-import '../css/initiate-transaction.css';
 
 export class InitiateTransactionContainer extends React.Component {
     
     render(props) {
         return (
-            <div className="transaction-section">
+            <section className="transaction-section">
                 <InitiateTransaction transactionAmount={this.props.transactionAmount} transactionId={this.props.transactionId} />
-            </div>
+            </section>
         );
     }
 }

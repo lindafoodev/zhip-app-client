@@ -2,8 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ClaimTransaction from './claim-transaction';
 
-import '../css/claim-transaction.css';
-
 export class ClaimTransactionContainer extends React.Component {
     
     render(props) {

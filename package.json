@@ -11,7 +11,8 @@
     "redux": "^3.7.2",
     "redux-form": "^7.2.3",
     "redux-thunk": "^2.2.0",
-    "react-spinkit": "^2.1.1"
+    "react-spinkit": "^2.1.1",
+    "jwt-decode": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

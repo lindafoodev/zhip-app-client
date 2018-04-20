@@ -1,13 +1,385 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  width: 100%;
-  height: 100vh;
+  max-width: 100%;
   background-color:#87CEFA;
+  overflow-x: hidden;
+  height:auto!important;
 }
 
 .app{
-  height: 100vh;
-  overflow: hidden
+  width: 100vw;
+  display: flex;
+}
+
+main {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45px;
+  padding: 10px;
+}
+
+
+/*========================LARGE SCREEN OR LANDSCAPE===============*/
+@media only screen and (min-width: 768px), only screen and (orientation: landscape){
+  main {
+    flex-grow: 1;
+  }
+
+  .app{
+    padding-top: 0px;
+  }
+
+  .hamburger-nav{
+    display: none;
+  }
+
+}
+
+/*========================SHARED ELEMENTS===============*/
+@media only screen and (min-width: 768px), only screen and (orientation: landscape){
+  .tag{
+    position: absolute;
+    width: 100vw;
+    left: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  #login-form, #registration-form, #create-form, #initiate-form, #activity-form, #balance-form, #claim-form{
+    display: flex;
+  }
+
+  .balance-form, .activity-section{
+    text-align: center;
+    padding-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .balance-form{
+    width: 50%;
+  }
+  
+  .activity-section{
+    width: 60%;
+  }
+
+  /* .new-transaction-details p, .balance-details p, .claim-details p{
+    margin-left: auto;
+    margin-right: auto;
+  } */
+
+  /*========================ACTIVITY===============*/
+
+  div.transaction-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 10px;
+    font-weight: 300;
+    border: 5px solid white;
+    border-radius: 5px;
+    background-color: white;
+    color:rgba(0, 0, 0, 0.753);
+    font-size: 2em;
+    margin-left: 115px;
+    margin-right: 115px;
+    text-align: left;
+  }
+
+  .direction{
+    color:rgba(0, 0, 0, 0.753);
+    font-size: 1em;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 24px;
+    margin-top: 30px;
+    border-radius: 5px;
+    background-color: white;
+    word-wrap: break-word;
+  }
+}
+
+.direction{
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 1em;
+  border-radius: 5px;
+  background-color: white;
+  word-wrap: break-word;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.info-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding: 10px;
+  font-weight: 300;
+  border: 5px solid white;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.key-name{
+  font-weight: 700;
+}
+
+#login-form, #registration-form, #create-form, #initiate-form, #activity-form, #balance-form, #claim-form{
+  justify-content: center;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.new-transaction-details p, .balance-details p, .claim-details p{
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 2em;
+  text-align: center;
+}
+
+.transactions-list{
+  list-style: none;
+  padding: 0
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 10px;
+  font-size:2em;
+  margin: 10px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 10px;
+  font-size:2em;
+  margin: 10px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=submit]{
+  align-self: center;
+  text-align: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 60%;
+  font-size: 1em;
+  font-weight: 600;
+  border: 5px solid rgba(255, 166, 0, 0.87) ;
+  border-radius: 5px;
+  background-color: white;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.753);
+  cursor: pointer;
+  }
+
+  
+button[type=submit]:hover {
+  background-color: #4078a5;
+  color: white;
+  border: 5px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-holder{
+  text-align: center;
+}
+
+label {
+  font-size: 2em;
+  color: #4078a5;
+}
+
+.title{
+  font-size: 3em;
+  color: rgba(0, 0, 0, 0.753);
+  text-align: center
+}
+
+.direction > p{
+  text-align: center;
+}
+
+#landingpage, #dashboard{
+  display: flex;
+  justify-content: center;
+}
+
+.modified-redirect{
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  width: 40%
+}
+
+.redirect{
+text-align: center;
+padding: 10px;
+font-weight: bold;
+}
+
+.transaction-section, .activity-section, .claim-section{
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+
+p.attention-stmt{
+  padding: 24px;
+  font-weight: 700;
+}
+
+p.decorate-link{
+  font-style: italic;
+}
+
+p {
+  word-wrap: break-word;
+}
+
+.application-name{
+  padding-top: 45px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 4.5em;
+  color: rgba(0, 0, 0, 0.753);
+}
+
+
+/*========================LANDING PAGE===============*/
+.intro-message {
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 3em;
+  font-weight: 1000;
+  text-align: center;
+ }
+
+
+
+/*=======================SIDEBAR===============*/
+/*=======================MOBILE AND PORTRAIT===============*/
+@media only screen and (max-width: 768px){
+  .sidebar{
+    display: none
+  }
+}
+
+  .sidebar {
+    min-width: 200px;
+    position: flex;
+    align-items: center;
+    background-color: #4682B4;
+    height: 100vh;
+  }
+
+  .sidebar-left {
+    margin-right: 10px;
+  }
+
+  .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-list-item {
+    padding: 25px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+
+  }
+
+  .link{
+    text-decoration: none;
+    color: white;
+  }
+
+  .menu-list-item:hover{
+    background-color: #4078a5;
+  }
+
+  .menu-list-item:hover .logout-button{
+    background-color: #4078a5;
+  }
+
+  .logout-button {
+    border: 0px solid transparent;
+    box-shadow: 0px 0px 0px transparent;
+    text-shadow: 0px 0px 0px transparent;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    background: #4682B4;
+    cursor: pointer;
+  }
+
+  .logout-button:hover {
+    border: 0px solid transparent;
+    box-shadow: 0px 0px 0px transparent;
+    text-shadow: 0px 0px 0px transparent;
+    background: #4078a5;
+    cursor: pointer;
+  }
+
+/*=======================HAMBURGER===============*/
+/*=======================MOBILE AND PORTRAIT===============*/
+
+@media (max-width: 768px){
+  a {
+      text-decoration: none;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    width: 24px;
+    height: 16px;
+    border: 1px solid #eeeeef;
+    border-radius: 2px;
+    box-shadow: 0 0 2px #eeeeef;
+    padding: 10px 10px;
+  }
+
+  .hamburger-stripe {
+      background-color: #6799ff;
+      height: 3px;
+      margin-bottom: 5px;
+  }
+
+  .sidebar {
+    width: 100vw;
+    position: flex;
+    align-items: center;
+    background-color: #4682B4;
+    height: 100vh;
+  }
+}
+
+.tag{
+  position: absolute;
+  margin-left: auto;
+  width: 100vw;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 5px;
 }

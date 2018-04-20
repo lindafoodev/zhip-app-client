@@ -1,43 +1,34 @@
 import React from 'react';
-import {createNewUser} from '../actions/actions';
-import {reduxForm} from 'redux-form';
-import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
+import Demo from './demo';
 
-import '../css/landingPage.css';
+export function LandingPage(props) {
+    // If we are logged in redirect straight to the user's dashboard
+    if (props.loggedIn) {
+        return <Redirect to="/dashboard" />;
+    }
 
-export class LandingPage extends React.Component{
-  componentDidMount(){
-    console.log('testing wires for LandingPage');
-  }
-
-  onSubmit() {
-    this.props.dispatch(createNewUser()).then(results => {
-      if(results === '1'){
-        this.props.history.push('/r')
-      }
-      return results 
-    })
-  }
-  
-  render(){
     return (
-      <section className='landingpage'>
-      <div className='intro-message'>Hello World, welcome to Zhip!</div>
-        <div id='new-user-form'>
-        <form className='new-user-form' onSubmit={this.props.handleSubmit(() => this.onSubmit())}>
-          <p>Send and receive IOUs between you and anyone else without needing their account information.</p>
-          <p>All you need is a secured Zhip account ID.</p>
-          <p className='attention-stmt'>Let's Get Started!</p>
-          <div className='button-holder'>
-            <button className='form-submit' type="submit">Secure New Account ID</button>
-          </div>
-        </form>
-        </div>
-      </section>
+        <section className='landingpage'>
+            <div className='application-name'>Zhip</div>
+            <div className='direction'>
+                <p>Join Zhip today to start sending and receiving IOUs between you and anyone else without needing their account information.</p>
+                <p>All you need to do is register and get a free secured Zhip ID.</p>
+                <p className='attention-stmt'>Let's Get Started!</p>
+            </div>
+            <div id="landingpage">
+                <div className='modified-redirect'>
+                    <Link to="/register"><button type="submit">Register</button></Link>
+                    <Demo/>
+                </div>
+            </div>
+        </section>
     );
-  }
 }
 
-const SmartRouter = withRouter(reduxForm({form: 'newUser'})(LandingPage));
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
 
-export default SmartRouter
+export default connect(mapStateToProps)(LandingPage);
