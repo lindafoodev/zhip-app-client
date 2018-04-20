@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {login} from '../actions/auth';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
@@ -8,6 +9,10 @@ export class Sidebar extends React.Component {
     logOut(){
         this.props.dispatch(clearAuth());
         clearAuthToken();
+    }
+
+    onSubmit(obj){
+        return this.props.dispatch(login(obj.username, obj.password));
     }
 
     render(){
@@ -51,6 +56,9 @@ export class Sidebar extends React.Component {
                 </div>
                 <nav className="menu">
                     <ul className="menu-list">
+                        <li key="demo-acct" className="demo-acct menu-list-item ">
+                            <button className='link logout-button' onClick={() => this.onSubmit({username:'hello', password:'world12345'})}>Demo</button>
+                        </li>
                         <li key="app-home" className="app-home menu-list-item">
                             <Link to={`/home`} className='link'>
                                 Home

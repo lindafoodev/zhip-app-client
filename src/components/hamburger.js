@@ -68,6 +68,9 @@ export function Hamburger(props) {
                 </div>
                 <nav className="menu">
                     <ul className="menu-list">
+                        <li key="demo-acct" className="demo-acct menu-list-item ">
+                            <button className='link logout-button' onClick={props.demoClicked}>Demo</button>
+                        </li>
                         <li key="app-home" className="app-home menu-list-item">
                             <Link to={`/home`} className='link'>
                                 Home
