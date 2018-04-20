@@ -55,7 +55,7 @@ export const createTransaction = values => dispatch => {
     method: 'POST',
     body: JSON.stringify(values),
     headers: {
-      "content-type": "application/json"
+      "Content-Type": "application/json"
     }
   })
   .then(response =>  {
@@ -107,7 +107,7 @@ const updateInitiatorAccount = values => dispatch => {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
-      "content-type": "application/json"
+      "Content-Type": "application/json"
     }
   })
   .then(response =>  {
@@ -129,7 +129,7 @@ export const claimTransaction = (values, transactionId) => dispatch => {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
-      "content-type": "application/json"
+      "Content-Type": "application/json"
     }
   })
   .then(response =>  {
@@ -151,7 +151,7 @@ const updateClaimerAccount = values => dispatch => {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
-      "content-type": "application/json"
+      "Content-Type": "application/json"
     }
   })
   .then(response =>  {
