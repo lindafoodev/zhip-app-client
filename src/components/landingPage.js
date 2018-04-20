@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import Demo from './demo';
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard
@@ -19,6 +20,7 @@ export function LandingPage(props) {
             <div id="landingpage">
                 <div className='modified-redirect'>
                     <Link to="/register"><button type="submit">Register</button></Link>
+                    <Demo/>
                 </div>
             </div>
         </section>

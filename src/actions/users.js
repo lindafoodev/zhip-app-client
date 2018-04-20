@@ -59,7 +59,7 @@ export const firstTimeUser = () => (dispatch, getState) => {
         }
         return response.json();
     })
-    .then( request => { console.log('what is reqe', request);
+    .then( request => {
         dispatch(firstAccessSuccess(request));
     })
     .catch(error => {
