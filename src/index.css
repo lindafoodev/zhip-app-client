@@ -16,7 +16,7 @@ html, body {
 main {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 25px;
+  margin-top: 45px;
   padding: 10px;
 }
 
@@ -39,6 +39,16 @@ main {
 
 /*========================SHARED ELEMENTS===============*/
 @media only screen and (min-width: 768px), only screen and (orientation: landscape){
+  .tag{
+    position: absolute;
+    width: 100vw;
+    left: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 5px;
+  }
+
   #login-form, #registration-form, #create-form, #initiate-form, #activity-form, #balance-form, #claim-form{
     display: flex;
   }
@@ -363,4 +373,13 @@ p {
     background-color: #4682B4;
     height: 100vh;
   }
+}
+
+.tag{
+  position: absolute;
+  margin-left: auto;
+  width: 100vw;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 5px;
 }

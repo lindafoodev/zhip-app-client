@@ -13,6 +13,7 @@ import Dashboard from './components/dashboard';
 import LoginPage from './components/login-page';
 import LogOut from './components/logout';
 import HamburgerNav from './components/hamburger-nav';
+import DemoTag from './components/demo-tag';
 import {
   Route,
   Redirect,
@@ -56,6 +57,7 @@ export class App extends React.Component {
   render(){
     return (
       <div className="app">
+          <DemoTag/>
           <Sidebar/>
           <HamburgerNav/>
           <main>
