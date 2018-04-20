@@ -41,8 +41,8 @@ main {
 @media only screen and (min-width: 768px), only screen and (orientation: landscape){
   .tag{
     position: absolute;
-    width: 100vw;
-    left: 5%;
+    width: 100%;
+    left: 6.25%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
