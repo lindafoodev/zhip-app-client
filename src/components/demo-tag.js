@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 export function DemoTag(props) {
     return (
-        <div className="tag">For Demo, Zhip ID<br/> 5ad92c38e74c8b078c901c9d</div>
+        <div className="tag">For Demo, Zhip ID<br/> 5ada279505f6051254052891</div>
     );
 }
 
