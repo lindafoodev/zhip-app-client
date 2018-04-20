@@ -4,7 +4,6 @@ import {login} from '../actions/auth';
 
 export class Demo extends React.Component {
     onSubmit(obj){
-      console.log('what happend', obj);
       return this.props.dispatch(login(obj.username, obj.password));
     }
 
