@@ -29,6 +29,16 @@ export const characterType = value => {
   }
 }
 
+export const positiveValue = value => {
+  const makeInteger = parseInt(value, 10);
+  if(makeInteger < 0){
+    return 'This field only takes positive numbers'
+  }
+  else {
+    return undefined
+  }
+}
+
 export const matches = field => (value, allValues) =>
     field in allValues && value.trim() === allValues[field].trim()
         ? undefined
