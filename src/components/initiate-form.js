@@ -1,6 +1,6 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
-import {required, notEmpty, characterType} from '../validators/submit-form-validator';
+import {required, notEmpty, characterType, positiveValue} from '../validators/submit-form-validator';
 import Input from './input';
 import {initiateTransaction} from '../actions/actions';
 import requiresLogin from './requires-login';
@@ -22,7 +22,7 @@ export class InitiateForm extends React.Component {
       <div className='title'>Create IOU</div>
       <div id='initiate-form'>
       <form autoComplete="off" onSubmit={this.props.handleSubmit(value => this.onSubmit(value))}>
-          <Field component={Input} type="text" element="input" name="transactionAmount" value="" id="transactionAmount" label="IOU Amount" validate={[required, notEmpty, characterType]}></Field>
+          <Field component={Input} type="text" element="input" name="transactionAmount" value="" id="transactionAmount" label="IOU Amount" validate={[required, notEmpty, characterType, positiveValue]}></Field>
         <div className='button-holder'>
         <button className="form-submit" type="submit">Submit</button>
         </div> 
