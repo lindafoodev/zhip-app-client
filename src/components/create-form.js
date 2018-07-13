@@ -1,6 +1,6 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
-import {required, notEmpty, correctCharLength, characterType} from '../validators/submit-form-validator';
+import {required, notEmpty, correctCharLength, characterType, positiveValue} from '../validators/submit-form-validator';
 import Input from './input';
 import {Link} from 'react-router-dom';
 import {createTransaction} from '../actions/actions';
@@ -23,7 +23,7 @@ export class CreateForm extends React.Component {
       <div id='create-form'>
       <form autoComplete="off" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <Field component={Input} type="text" element="input" name="userIdInitiator" value="" id="userIdInitiator" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
-          <Field component={Input} type="text" element="input" name="transactionAmount" value="" id="transactionAmount" label="IOU Amount" validate={[required, notEmpty, characterType]}></Field>
+          <Field component={Input} type="text" element="input" name="transactionAmount" value="" id="transactionAmount" label="IOU Amount" validate={[required, notEmpty, characterType, positiveValue]}></Field>
         <div className='button-holder'>
         <button className="form-submit" type="submit">Submit</button>
         </div> 
